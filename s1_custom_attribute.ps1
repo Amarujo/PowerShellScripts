@@ -1,15 +1,17 @@
-#Users will periodically need their custom attributes updated.
-#Will eventually expand this to go through a csv, check multiple columns for multiple properties (directory info, phone number, etc) 
-#and make sure it matches or update as necessary
+#for each user in csv file
+#check if new attribute equals the old attribute
+#if yes, write "attribute already exists)
+#if no, set new attribute
 
-
-$new_attribute="new website"
-$old_attribute=(get-mailbox ups).customattribute1
+$new_attribute="google.com"
+$current_attribute=(get-mailbox LynneR@amarujo.onmicrosoft.com).customattribute1
 if ($new_attribute -eq $current_attribute) { 
     write-host "New and current attribute are the same, no changes made."
     } 
 	else {
-	Set-Mailbox ups -CustomAttribute1 $new_attribute
+	Set-Mailbox LynneR@amarujo.onmicrosoft.com -CustomAttribute1 $new_attribute 
+	$attribute=(get-mailbox LynneR@amarujo.onmicrosoft.com).customattribute1
+	write-host "Attribute has been updated to $attribute"
 	}
 
 	
