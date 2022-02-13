@@ -1,16 +1,16 @@
 Archive Mailbox Test
 
 1 - Confirm archive is enabled:
-	Get-Mailbox andy.gallegos@amarujo.onmicrosoft.com | Format-List Name,RecipientTypeDetails,PrimarySmtpAddress,*Archive*
+	Get-Mailbox upn | Format-List Name,RecipientTypeDetails,PrimarySmtpAddress,*Archive*
 	#make note of guid: ArchiveGuid : 0ce4cf12-1d45-4615-9add-6dd54631a0d8
 2 - Disable archive:
-	Disable-Mailbox "andy.gallegos@amarujo.onmicrosoft.com" -Archive
+	Disable-Mailbox "upns" -Archive
 3 - confirm it's set to disabled in the portal/powershell
-	Get-Mailbox GradyA@amarujo.onmicrosoft.com | Format-List Name,RecipientTypeDetails,PrimarySmtpAddress,*Archive*
+	Get-Mailbox upns | Format-List Name,RecipientTypeDetails,PrimarySmtpAddress,*Archive*
 4 - restore without data:
-	set-mailbox "andy.gallegos@amarujo.onmicrosoft.com" -archive -removedisabledarchive
+	set-mailbox "upn -archive -removedisabledarchive
 5-  Confirm the guid is different
-    Get-Mailbox GradyA@amarujo.onmicrosoft.com | Format-List Name,RecipientTypeDetails,PrimarySmtpAddress,*Archive*
+    Get-Mailbox upn | Format-List Name,RecipientTypeDetails,PrimarySmtpAddress,*Archive*
 	#make note of guid: ArchiveGuid : 0ce4cf12-1d45-4615-9add-6dd54631a0d8
 	
-	###test this again, but load andy.gallegos@amarujo.onmicrosoft.com email with dummy data and make sure its accessible after doing all of these steps
+	###test this again, but load user email with dummy data and make sure its accessible after doing all of these steps
