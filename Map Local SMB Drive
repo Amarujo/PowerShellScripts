@@ -1,0 +1,4 @@
+#add username/password to local credential manager
+cmdkey /add:IPaddr /user:domain\samba_user_name /pass:password
+
+New-PSDrive -Name "E" -Root "\\ipaddress\name_of_share" -Persist -PSProvider "FileSystem"  -scope global
