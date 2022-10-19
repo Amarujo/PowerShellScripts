@@ -7,7 +7,6 @@ $backupdocuments="$env:USERPROFILE\Weekly-Backups\Weeky-Backup-$(get-date -f yyy
 
 #set variable for creating backup folders and back back up destination on USB Drive
 $USBDir="D:\user-files\Weeky-Backup-$(get-date -f yyyy-MM-dd)\ "
-$USBDocs="D:\user-files\Weeky-Backup-$(get-date -f yyyy-MM-dd)\Documents"
 
 #set variables for source folders 
 $Desktop="$env:USERPROFILE\Desktop\ "
@@ -28,7 +27,7 @@ $disk=Get-PnpDevice -PresentOnly | Where-Object { $_.FriendlyName -match 'SanDis
 	}
 	
 #Make weekly backup folders 
-$dirs = @($backupdir,$backupdocuments,$USBDir,$USBDocs)
+$dirs = @($backupdir,$backupdocuments,$USBDir)
 foreach ($dir in $dirs) {
 	 new-item -path $dir -itemtype directory 
 	}
