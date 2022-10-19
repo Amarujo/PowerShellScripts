@@ -28,7 +28,7 @@ $disk=Get-PnpDevice -PresentOnly | Where-Object { $_.FriendlyName -match 'SanDis
 	}
 	
 #Make weekly backup folders 
-$dirs = @($backupdir,$backupdocuments,$USBDir,$USBDocs, 
+$dirs = @($backupdir,$backupdocuments,$USBDir,$USBDocs)
 foreach ($dir in $dirs) {
 	 new-item -path $dir -itemtype directory 
 	}
